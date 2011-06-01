@@ -1,5 +1,6 @@
 import app, os, sys
 
+sys.path.insert(0, 'vendor')
 sys.path.insert(0, 'api/lib')
 
 from api.controllers import observations
