@@ -1,23 +1,17 @@
 h1. Stacks is an exploration of the Google App Engine stack. 
 
-h2. The server will be written in "Python":http://code.google.com/appengine/docs/python/overview.html. While "Rodrigo Moraes'":http://code.google.com/u/rodrigo.moraes/ work on "tipfy":http://www.tipfy.org/ and "webapp-improved":http://code.google.com/p/webapp-improved/ look interesting, we anticipate using "webapp":http://code.google.com/appengine/docs/python/tools/webapp/.  The server will:
+h4. The server will be written in "Python":http://code.google.com/appengine/docs/python/overview.html. While "Rodrigo Moraes'":http://code.google.com/u/rodrigo.moraes/ work on "tipfy":http://www.tipfy.org/ and "webapp-improved":http://code.google.com/p/webapp-improved/ look interesting, we anticipate using "webapp":http://code.google.com/appengine/docs/python/tools/webapp/.  The server will:
 
 # use a "scheduled task":http://code.google.com/appengine/docs/python/config/cron.html to initiate a "URL Fetch":http://code.google.com/appengine/docs/python/urlfetch/
-
 # pull data from a remote source with "URL Fetch":http://code.google.com/appengine/docs/python/urlfetch/, save it to a "datastore":http://code.google.com/appengine/docs/python/gettingstarted/usingdatastore.html, and enqueue a task onto the "task queue":http://code.google.com/appengine/docs/python/taskqueue/
-
 # push tasks from the "task queue":http://code.google.com/appengine/docs/python/taskqueue/ to an application URL which will process the data and store the result in the "datastore":http://code.google.com/appengine/docs/python/datastore/
-
 # offer a RESTful interface to the result of the processed data through "Google ProtoRPC":http://code.google.com/p/google-protorpc/
-
 # rely on the "Users API":http://code.google.com/appengine/docs/python/users/ and "app.yaml":http://code.google.com/appengine/docs/python/config/appconfig.html#Requiring_Login_or_Administrator_Status for authentication and authorization
 
-h2. The client will be written in JavaScript and use the "Angular":http://angularjs.org/#/ framework. It will:
+h4. The client will be written in JavaScript and use the "Angular":http://angularjs.org/#/ framework. It will:
 
-# have "resources":http://docs.angularjs.org/#!angular.service.$resource that pull JSON from the "Google ProtoRPC":https://docs.google.com/document/d/1QJBVWnbtYoiTFHIyqcBdnv5u4C1zYvDzFFGBIun35Ro/edit?hl=pt_BR# services
-
+# have "resources":http://docs.angularjs.org/#!angular.service.$resource that pull JSON from the "Google ProtoRPC":https://docs.google.com/document/d/1QJBVWnbtYoiTFHIyqcBdnv5u4C1zYvDzFFGBIun35Ro/edit?hl=pt_BR services
 # display the data with "@ng:repeat":http://docs.angularjs.org/#!angular.widget.@ng:repeat
-
 # use "Google Prediction API":http://code.google.com/apis/predict/ and "Google Chart Tools":http://code.google.com/apis/chart/ to analyze and vizualize the data
 
-# use "Closure":http://code.google.com/closure/ for controllers if appropriate
+# use "Closure":http://code.google.com/closure/ for "controllers":http://docs.angularjs.org/#!angular.directive.ng:controller if appropriate
