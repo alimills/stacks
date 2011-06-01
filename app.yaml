@@ -4,11 +4,21 @@ runtime: python
 api_version: 1
 
 handlers:
-- url: /
-  script: routes.py
 
-- url: /index\.html
-  script: routes.py
+- url: /css
+  static_dir: app/css
+
+- url: /img
+  static_dir: app/img
+
+- url: /js
+  static_dir: app/js
+
+- url: /lib
+  static_dir: app/lib
+
+- url: /partials
+  static_dir: app/partials
 
 - url: /api/.*
   script: routes.py
@@ -19,5 +29,5 @@ handlers:
   script: routes.py
   login: admin
 
-- url: /.*
-  static_dir: app
+- url: /
+  script: routes.py
