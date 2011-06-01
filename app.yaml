@@ -20,6 +20,9 @@ handlers:
 - url: /partials
   static_dir: app/partials
 
+- url: /protorpc.*
+  script: routes.py
+
 - url: /api/.*
   script: routes.py
   login: required
