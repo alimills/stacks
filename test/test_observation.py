@@ -11,23 +11,11 @@ http://code.google.com/appengine/docs/python/tools/localunittesting.html
 
 __author__ = 'lbayes@google.com (Luke Bayes)'
 
-#from google3.testing.pybase import googletest
-import unittest
 import datetime
-from google.appengine.ext import db
-from google.appengine.ext import testbed
+from test.stack_test_case import StackTestCase
 from api.models.observation import Observation
 
-class TestObservation(unittest.TestCase):
-
-  def setUp(self):
-    self.testbed = testbed.Testbed()
-    self.testbed.setup_env(app_id = "12345")
-    self.testbed.activate()
-    self.testbed.init_datastore_v3_stub()
-
-  def tearDown(self):
-    self.testbed.deactivate()
+class TestObservation(StackTestCase):
 
   def testCreateEmpty(self):
     instance = Observation().put()
