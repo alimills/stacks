@@ -7,10 +7,10 @@
 __author__ = 'lbayes@google.com (Luke Bayes)'
 
 #from google3.testing.pybase import googletest
-from app.lib import unittest2
-from api.lib import observation
+import unittest
+from api.models import observation
 
-class TestObservation(google.TestCase):
+class TestObservation(unittest.TestCase):
 
   def testGiveMeAName(self):
     self.fail("BROKE")
