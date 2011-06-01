@@ -12,7 +12,7 @@ http://www.ndbc.noaa.gov/data/latest_obs/latest_obs.txt
 __author__ = 'lbayes@google.com (Luke Bayes)'
 
 from google.appengine.ext import db
-from api.lib.geo.geomodel import GeoModel
+from geo.geomodel import GeoModel
 
 class Observation(GeoModel):
   station_id = db.StringProperty()
