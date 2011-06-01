@@ -9,6 +9,7 @@ SDK_PATH    Path to the SDK installation
 TEST_PATH   Path to package containing test modules"""
 
 sys.path.insert(0, 'api/lib')
+sys.path.insert(0, 'vendor')
 import unittest2
 
 def main(sdk_path, test_path):
