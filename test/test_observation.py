@@ -20,16 +20,19 @@ from api.models.observation import Observation
 
 class TestObservation(unittest.TestCase):
 
-  def setup(self):
+  def setUp(self):
     self.testbed = testbed.Testbed()
+    self.testbed.setup_env(app_id = "12345")
     self.testbed.activate()
     self.testbed.init_datastore_v3_stub()
 
-  def teardown(self):
+  def tearDown(self):
     self.testbed.deactivate()
 
-  def testCreate(self):
-    observation = Observation()
-    observation.station_id = 'abcd'
-    observation.observed_at = datetime.datetime.now()
-    observation.put()
+  def testCreateEmpty(self):
+    instance = Observation().put()
+    self.assertTrue(instance)
+
+  def testCreateWithParam(self):
+    instance = Observation(station_id = "abcd")
+    self.assertEqual("abcd", instance.station_id)
