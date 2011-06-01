@@ -2,15 +2,14 @@ import csv
 
 class NoaaLatestObservationParser():
 
-  document_dialect = 'excel-space'
   document_fieldnames = ['station', 'latitude', 'longitude', 'year',
                          'month', 'day', 'hour', 'minute',
                          'wind_direction_degrees',
                          'wind_speed_meters_per_second',
                          'gust_meters_per_second',
                          'wave_height_meters',
-                         'd_period_meters_per_second',
-                         'a_period_meters_per_second',
+                         'dominant_period_meters_per_second',
+                         'average_period_meters_per_second',
                          'm_wind_compass_degrees',
                          'barometric_pressure', 'ptdy',
                          'air_temperature_celcius', 'water_temperature_celcius',
@@ -23,7 +22,10 @@ class NoaaLatestObservationParser():
     result = {}
     for index, value in enumerate(row):
       key = self.document_fieldnames[index]
-      result[key] = value
+      if value == self.null_value:
+        result[key] = None
+      else:
+        result[key] = value
     return result
 
   def parse(self, input):
