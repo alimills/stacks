@@ -19,7 +19,7 @@ class ObservationResponse(messages.Message):
 	lng = messages.IntegerField(3)
 
 class ObservationsResponse(messages.Message):
-  observations = messages.MessageField(ObservationRequest, 1, repeated=True)
+  observations = messages.MessageField(ObservationResponse, 1, repeated=True)
 
 class Service(remote.Service):
 
@@ -37,7 +37,7 @@ class Service(remote.Service):
 
   @remote.method(ObservationRequest, ObservationsResponse)
   def all(self, request):
-		return ObservationsResponse(observation=[self.create_observation(),self.create_observation()])
+		return ObservationsResponse(observations=[self.create_observation(),self.create_observation()])
 
   def create_observation(self):
 		observed_at = datetime.datetime.now()
