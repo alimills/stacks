@@ -25,8 +25,18 @@ class NoaaLatestObservationParser():
       if value == self.null_value:
         result[key] = None
       else:
-        result[key] = value
+        result[key] = self.process_value(value)
     return result
+
+  def process_value(self, value):
+    if value is None :
+      return None
+    elif float(value) is not None :
+      return float(value)
+    elif int(value) is not None :
+      return int(value)
+    else:
+      return value
 
   def parse(self, input):
     input = input.split("\n")
