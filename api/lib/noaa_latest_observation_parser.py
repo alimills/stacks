@@ -25,7 +25,7 @@ class NoaaLatestObservationParser():
       if value == self.null_value:
         result[key] = None
       else:
-        result[key] = value
+        result[key] = self.process_value(value)
     return result
 
   def parse(self, input):
