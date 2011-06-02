@@ -5,12 +5,10 @@ from api.models.station import Station
 
 class TestObservation(StackTestCase):
 
-  def testCreateEmpty(self):
-    instance = Observation().put()
+  def testCreateEmptyish(self):
+    instance = Observation(station_id = "abcd").put()
     self.assertTrue(instance)
 
   def testCreateWithParam(self):
-    station = Station(station_id = "abcd1234")
-    station.put()
-    instance = Observation(station = station)
-    self.assertEqual("abcd1234", instance.station.station_id)
+    instance = Observation(station_id = "abcd1234")
+    self.assertEqual("abcd1234", instance.station_id)

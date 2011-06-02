@@ -28,6 +28,10 @@ handlers:
   login: required
   auth_fail_action: unauthorized
 
+- url: /tasks/.*
+  script: routes.py
+  login: admin
+
 - url: /admin/.*
   script: routes.py
   login: admin

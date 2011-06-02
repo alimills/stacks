@@ -14,7 +14,7 @@ class Handler(webapp.RequestHandler):
       url = users.create_login_url("/")
       user_nickname = ""
       template_path = os.path.join(os.path.dirname(__file__), 'login.html')
-    
+
     template_values = {
       'url': url,
       'user_nickname': user_nickname,

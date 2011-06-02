@@ -2,7 +2,7 @@ import csv
 
 class NoaaLatestObservationParser():
 
-  document_fieldnames = ['station', 'latitude', 'longitude', 'year',
+  document_fieldnames = ['station_id', 'latitude', 'longitude', 'year',
                          'month', 'day', 'hour', 'minute',
                          'wind_direction_degrees',
                          'wind_speed_meters_per_second',
@@ -29,6 +29,7 @@ class NoaaLatestObservationParser():
     return result
 
   def parse(self, input):
+    input = input.split("\n")
     input.pop(0)
     input.pop(0)
     processed = []
