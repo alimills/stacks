@@ -5,8 +5,8 @@
  */
 angular.service('myAngularApp', function($route, $location, $window) {
 
-  $route.when('/observations', {template: 'partials/observations.html', controller: Observations});
-  $route.when('/observation', {template: 'partials/observation.html', controller: Observation});
+  $route.when('/observations', {template: 'partials/observations.html', controller: ObservationsCtrl});
+  $route.when('/observation', {template: 'partials/observation.html', controller: ObservationCtrl});
 
   var self = this;
 
