@@ -5,14 +5,14 @@
  */
 angular.service('myAngularApp', function($route, $location, $window) {
 
-  $route.when('/view1', {template: 'partials/partial1.html', controller: MyCtrl1});
-  $route.when('/view2', {template: 'partials/partial2.html', controller: MyCtrl2});
+  $route.when('/observations', {template: 'partials/observations.html', controller: Observations});
+  $route.when('/observation', {template: 'partials/observation.html', controller: Observation});
 
   var self = this;
 
   $route.onChange(function() {
     if ($location.hash === '') {
-      $location.updateHash('/view1');
+      $location.updateHash('/observations');
       self.$eval();
     } else {
       $route.current.scope.params = $route.current.params;

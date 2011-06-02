@@ -1,9 +1,9 @@
 /* App Controllers */
 
 
-function MyCtrl1() {}
-MyCtrl1.$inject = [];
+function Observations() {}
+Observations.$inject = [];
 
 
-function MyCtrl2() {}
-MyCtrl2.$inject = [];
+function Observation() {}
+Observation.$inject = [];
